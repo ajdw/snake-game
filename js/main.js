@@ -141,7 +141,7 @@ function update() {
 		snake.direction = DOWN;
 	}
 
-	if (frames%5 === 0) {
+	if (frames%7 === 0) {
 		var nx = snake.last.x;
 		var ny = snake.last.y;
 
@@ -168,6 +168,10 @@ function update() {
 		if (grid.get(nx, ny) === FRUIT) {
 			var tail = {x:nx, y:ny};
 			score++;
+			setFood();
+			setFood();
+			setFood();
+			setFood();
 			setFood();
 		} else {
 		var tail = snake.remove();
