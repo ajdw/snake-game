@@ -22,7 +22,7 @@ var grid = {
 		this._grid = [];
 		for (var x = 0; x < c; x++) {
 			this._grid.push([]);
-			for (var y=0; y < r; y++) {
+			for (var y = 0; y < r; y++) {
 				this._grid[x].push(d);
 			}
 		}
@@ -68,7 +68,7 @@ var snake = {
 function setFood() {
 	var empty = [];
 	for (var x = 0; x < grid.width; x++) {
-		for (var y=0; y < grid.height; y++) {
+		for (var y = 0; y < grid.height; y++) {
 			if (grid.get(x,y) === EMPTY) {
 				empty.push({x:x, y:y});
 			}
@@ -84,12 +84,12 @@ var canvas, ctx, keystate, frames, score;
 
 function main() {
 	canvas = document.createElement('canvas');
-	canvas.width = COLS*20;
-	canvas.height = ROWS*20;
+	canvas.width = COLS*33;
+	canvas.height = ROWS*33;
 	ctx = canvas.getContext('2d');
 	document.body.appendChild(canvas);
 
-	ctx.font = '12px Helvetica';
+	ctx.font = '21px Helvetica';
 
 	frames = 0;
 	keystate = {};
@@ -168,10 +168,6 @@ function update() {
 		if (grid.get(nx, ny) === FRUIT) {
 			var tail = {x:nx, y:ny};
 			score++;
-			setFood();
-			setFood();
-			setFood();
-			setFood();
 			setFood();
 		} else {
 		var tail = snake.remove();
